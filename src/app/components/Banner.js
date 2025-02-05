@@ -6,7 +6,7 @@ const Banner = () => {
   return (
     <div className="">
       {/* Top gradient banner */}
-      <div className="w-screen relative left-[50%] right-[50%] ml-[-50vw] mr-[-50vw] bg-gradient-to-r from-[#1A7DB4] to-[#92BFD9] text-white py-2">
+      <div className="w-screen relative left-[50%] right-[50%] ml-[-50vw] mr-[-50vw] bg-gradient-to-r from-black to-grey text-white py-2">
         <div className="w-full flex items-center justify-center px-4">
           <p className="text-sm md:text-base flex items-center space-x-2 text-center pb-2">
             <span>Start your digital journey now and elevate your online presence to new heights!</span>
@@ -40,7 +40,7 @@ const Banner = () => {
           href="mailto:contact@pentacloud.in"
           className="text-[#0288d1] hover:text-[#03a9f4] transition-colors"
         >
-          contactus@pentacloudconsulting.com
+          xxxxxx@cegs.com
         </a>
       </div>
     </div>
