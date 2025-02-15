@@ -7,7 +7,8 @@ import Banner from '../../components/Banner';
 import TestimonialSlider from "../../components/TestimonialSlider";
 
 export default function StaffingSolutions() {
-  const [activeType, setActiveType] = useState(null);
+  const [activeType, setActiveType] = useState<number | null>(null);
+
 
   const staffingTypes = [
     {
