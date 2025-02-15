@@ -6,52 +6,46 @@ import Header from "../../components/Header";
 import Banner from '../../components/Banner';
 import TestimonialSlider from "../../components/TestimonialSlider";
 
-
 export default function HRConsulting() {
-  const [email, setEmail] = useState('');
-  const [activeService, setActiveService] = useState(null);
+  const [activeService, setActiveService] = useState<number | null>(null);
 
   const services = [
     {
-      icon: <Users className="w-6 h-6" />,
-      title: "Talent Management",
+      icon: <Users className="w-6 h-6" />, 
+      title: "Talent Management", 
       description: "Strategic workforce planning and talent acquisition solutions"
     },
     {
-      icon: <BookOpen className="w-6 h-6" />,
-      title: "Organizational Development",
+      icon: <BookOpen className="w-6 h-6" />, 
+      title: "Organizational Development", 
       description: "Structured approaches to improve organizational effectiveness"
     },
     {
-      icon: <Heart className="w-6 h-6" />,
-      title: "Employee Engagement",
+      icon: <Heart className="w-6 h-6" />, 
+      title: "Employee Engagement", 
       description: "Programs to boost workplace satisfaction and retention"
     },
     {
-      icon: <Shield className="w-6 h-6" />,
-      title: "Policy & Compliance",
+      icon: <Shield className="w-6 h-6" />, 
+      title: "Policy & Compliance", 
       description: "Expert guidance on HR regulations and best practices"
     },
     {
-      icon: <BarChart className="w-6 h-6" />,
-      title: "Performance Management",
+      icon: <BarChart className="w-6 h-6" />, 
+      title: "Performance Management", 
       description: "Systems to track and improve employee performance"
     },
     {
-      icon: <Award className="w-6 h-6" />,
-      title: "Training & Development",
+      icon: <Award className="w-6 h-6" />, 
+      title: "Training & Development", 
       description: "Customized learning programs for workforce growth"
     }
   ];
 
-  const handleSubmit = (e: { preventDefault: () => void; }) => {
-    e.preventDefault();
-    console.log('Email submitted:', email);
-  };
-
   return (
     <div className="bg-black min-h-screen">
-        <Header />
+      <Header />
+      
       {/* Hero Section */}
       <div className="relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-purple-900/20 to-blue-900/20" />
@@ -67,10 +61,7 @@ export default function HRConsulting() {
                   Transform your human resources strategy with our comprehensive consulting solutions.
                 </p>
               </div>
-              
-              
             </div>
-            
             <div className="flex-1 flex justify-center items-center">
               <div className="relative w-72 h-72">
                 <div className="absolute inset-0 bg-[#6B7AFF] rounded-full blur-3xl opacity-20 animate-pulse" />

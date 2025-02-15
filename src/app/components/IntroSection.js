@@ -1,5 +1,4 @@
 'use client';
-import Image from 'next/image';
 import ProcessSlider from './ProcessSlider';
 import AboutSection from './AboutSection';
 import BenefitsSection from './BenefitsSection';

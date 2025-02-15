@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from 'next/link';
+import Image from "next/image";  // Import Next.js Image
 
 export default function Header() {
   const router = useRouter();
@@ -54,13 +55,15 @@ export default function Header() {
       <nav className="container mx-auto flex items-center justify-between py-4 px-6">
         {/* Logo - Link to Home Page */}
         <div className="flex items-center">
-          <Link href="/" passHref>
-            <img
-              src="/Assets/cges2.png"
-              alt="Logo"
-              className="w-[200px] h-[100px] object-contain cursor-pointer"
-            />
-          </Link>
+        <Link href="/" passHref>
+  <Image
+    src="/Assets/cges2.png"
+    alt="Logo"
+    width={200}
+    height={100}
+    className="object-contain cursor-pointer"
+  />
+</Link>
         </div>
 
         {/* Hamburger Icon for Mobile */}

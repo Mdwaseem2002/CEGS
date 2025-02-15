@@ -112,7 +112,7 @@ const TestimonialSlider = () => {
                   }`}
                 >
                   <div className="bg-white rounded-lg p-4 md:p-6 lg:p-8 h-full text-center">
-                    <div className="text-teal-500 text-3xl md:text-4xl mb-3 md:mb-4">"</div>
+                    <div className="text-teal-500 text-3xl md:text-4xl mb-3 md:mb-4">&quot;</div>
                     <h3 className="text-teal-500 text-lg md:text-xl font-semibold mb-3 md:mb-4">
                       {testimonial.title}
                     </h3>

@@ -7,50 +7,44 @@ import Banner from '../../components/Banner';
 import TestimonialSlider from "../../components/TestimonialSlider";
 
 export default function WebDevelopmentServices() {
-  const [email] = useState('');
   const [activeService, setActiveService] = useState<number | null>(null);
 
   const services = [
     {
-      icon: <Code className="w-6 h-6" />,
-      title: "Custom Solutions",
+      icon: <Code className="w-6 h-6" />, 
+      title: "Custom Solutions", 
       description: "Tailor-made web applications built with cutting-edge technologies"
     },
     {
-      icon: <Gauge className="w-6 h-6" />,
-      title: "Optimized Performance",
+      icon: <Gauge className="w-6 h-6" />, 
+      title: "Optimized Performance", 
       description: "Lightning-fast load times and smooth user experiences"
     },
     {
-      icon: <Layers className="w-6 h-6" />,
-      title: "Scalability and Growth",
+      icon: <Layers className="w-6 h-6" />, 
+      title: "Scalability and Growth", 
       description: "Future-proof architecture that grows with your business"
     },
     {
-      icon: <Layout className="w-6 h-6" />,
-      title: "Landing Pages",
+      icon: <Layout className="w-6 h-6" />, 
+      title: "Landing Pages", 
       description: "High-converting landing pages optimized for your audience"
     },
     {
-      icon: <Search className="w-6 h-6" />,
-      title: "SEO Optimization",
+      icon: <Search className="w-6 h-6" />, 
+      title: "SEO Optimization", 
       description: "Enhanced visibility and search engine performance"
     },
     {
-      icon: <Smartphone className="w-6 h-6" />,
-      title: "Responsive Design",
+      icon: <Smartphone className="w-6 h-6" />, 
+      title: "Responsive Design", 
       description: "Perfect experience across all devices and screen sizes"
     }
   ];
 
-  const handleSubmit = (e: { preventDefault: () => void; }) => {
-    e.preventDefault();
-    console.log('Email submitted:', email);
-  };
-
   return (
     <div className="bg-black min-h-screen">
-      <Header /> {/* Header Component Added */}
+      <Header />
 
       {/* Hero Section */}
       <div className="relative overflow-hidden">
@@ -67,8 +61,6 @@ export default function WebDevelopmentServices() {
                   Transform your vision into reality with our cutting-edge web development solutions.
                 </p>
               </div>
-
-              
             </div>
 
             <div className="flex-1 flex justify-center items-center">
@@ -134,4 +126,4 @@ export default function WebDevelopmentServices() {
       `}</style>
     </div>
   );
-} 
+}

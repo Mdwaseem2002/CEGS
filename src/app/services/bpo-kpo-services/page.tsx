@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from 'react';
-import { Headphones, BookOpen, Phone, Database, FileText, Users } from 'lucide-react';
+import { Headphones, BookOpen, Phone, Database, Users } from 'lucide-react';
 import Header from "../../components/Header";
 import Banner from '../../components/Banner';
 import TestimonialSlider from "../../components/TestimonialSlider";

@@ -57,12 +57,13 @@ export default function ContactPage() {
       } else {
         throw new Error(data.message || 'Something went wrong');
       }
-    } catch (error) {
+    } catch {
       setSubmitStatus({ 
         type: 'error', 
         message: 'Failed to send message. Please try again later.' 
       });
-    } finally {
+    }
+     finally {
       setIsSubmitting(false);
     }
   };
