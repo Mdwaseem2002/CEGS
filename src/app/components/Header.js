@@ -10,11 +10,17 @@ export default function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isMobileServicesOpen, setIsMobileServicesOpen] = useState(false);
 
+  const toggleMobileServices = (e) => {
+    e.stopPropagation(); // Prevent event bubbling
+    setIsMobileServicesOpen(!isMobileServicesOpen);
+  };
+
   // Navigation handler for services
   const navigateToService = (path) => {
-    // Close mobile-specific dropdowns
+    // Close all mobile menus
     setIsMobileMenuOpen(false);
     setIsMobileServicesOpen(false);
+    setIsDropdownOpen(false);
     
     // Navigate to the specified service path
     router.push(path);
@@ -41,8 +47,6 @@ export default function Header() {
       name: "BPO/KPO & Inside Sales Staffing", 
       path: "/services/bpo-kpo-services" 
     }
-    
-    
   ];
 
   return (
@@ -50,13 +54,13 @@ export default function Header() {
       <nav className="container mx-auto flex items-center justify-between py-4 px-6">
         {/* Logo - Link to Home Page */}
         <div className="flex items-center">
-        <Link href="/" passHref>
-  <img
-    src="/Assets/cges2.png"
-    alt="Logo"
-    className="w-[100px] h-[100px] object-contain cursor-pointer"
-  />
-</Link>
+          <Link href="/" passHref>
+            <img
+              src="/Assets/cges2.png"
+              alt="Logo"
+              className="w-[200px] h-[100px] object-contain cursor-pointer"
+            />
+          </Link>
         </div>
 
         {/* Hamburger Icon for Mobile */}
@@ -85,15 +89,14 @@ export default function Header() {
         {/* Desktop Navigation Links */}
         <ul className="hidden md:flex space-x-6">
           <li className="text-white hover:text-[#D2BE60] cursor-pointer text-xl">
-          <Link href="/about">About Us</Link>
+            <Link href="/about">About Us</Link>
           </li>
           <li 
             className="relative group text-white hover:text-[#D2BE60] cursor-pointer text-xl"
             onMouseEnter={() => setIsDropdownOpen(true)}
+            onMouseLeave={() => setIsDropdownOpen(false)}
           >
-            <div 
-              className="flex items-center"
-            >
+            <div className="flex items-center">
               Services
               <svg 
                 xmlns="http://www.w3.org/2000/svg" 
@@ -106,20 +109,13 @@ export default function Header() {
               </svg>
             </div>
             {isDropdownOpen && (
-              <div 
-                className="absolute left-0 mt-2 w-64 bg-black border border-[#D2BE60] rounded-md shadow-lg z-20"
-                onMouseEnter={() => setIsDropdownOpen(true)}
-                onMouseLeave={() => setIsDropdownOpen(false)}
-              >
+              <div className="absolute left-0 mt-2 w-64 bg-black border border-[#D2BE60] rounded-md shadow-lg z-20">
                 <ul className="py-2">
                   {services.map((service) => (
                     <li 
                       key={service.path}
                       className="px-4 py-2 hover:bg-[#333] text-[#D2BE60] hover:text-white cursor-pointer text-sm"
-                      onClick={() => {
-                        navigateToService(service.path);
-                        setIsDropdownOpen(false);
-                      }}
+                      onClick={() => navigateToService(service.path)}
                     >
                       {service.name}
                     </li>
@@ -129,12 +125,12 @@ export default function Header() {
             )}
           </li>
           <li className="text-white hover:text-[#D2BE60] cursor-pointer text-xl">
-            <a href="/contact">Contact</a>
+            <Link href="/contact">Contact</Link>
           </li>
         </ul>
 
-        {/* Get Started Button */}
-        <div>
+        {/* Get Started Button - visible on both mobile and desktop */}
+        <div className="hidden md:block">
           <button 
             className="bg-[#D2BE60] text-black px-4 py-2 rounded-md hover:bg-[#B5A050]"
             onClick={() => navigateToService("/contact")}
@@ -149,13 +145,13 @@ export default function Header() {
         <div className="bg-black shadow-md md:hidden">
           <ul className="flex flex-col space-y-4 py-4 px-6">
             <li className="text-[#D2BE60] hover:text-white cursor-pointer">
-              <a href="/about">About Us</a>
+              <Link href="/about">About Us</Link>
             </li>
-            <li 
-              className="text-[#D2BE60] hover:text-white cursor-pointer"
-              onClick={toggleMobileServices}
-            >
-              <div className="flex justify-between items-center">
+            <li className="text-[#D2BE60] hover:text-white cursor-pointer">
+              <div 
+                className="flex justify-between items-center"
+                onClick={toggleMobileServices}
+              >
                 Services
                 <svg 
                   xmlns="http://www.w3.org/2000/svg" 
@@ -172,7 +168,7 @@ export default function Header() {
                   {services.map((service) => (
                     <li 
                       key={service.path}
-                      className="text-[#D2BE60] hover:text-white cursor-pointer"
+                      className="text-[#D2BE60] hover:text-white cursor-pointer py-2"
                       onClick={() => navigateToService(service.path)}
                     >
                       {service.name}
@@ -182,7 +178,16 @@ export default function Header() {
               )}
             </li>
             <li className="text-[#D2BE60] hover:text-white cursor-pointer">
-              <a href="/contact">Contact</a>
+              <Link href="/contact">Contact</Link>
+            </li>
+            {/* Get Started Button for mobile */}
+            <li className="pt-2">
+              <button 
+                className="w-full bg-[#D2BE60] text-black px-4 py-2 rounded-md hover:bg-[#B5A050]"
+                onClick={() => navigateToService("/contact")}
+              >
+                Get Started
+              </button>
             </li>
           </ul>
         </div>

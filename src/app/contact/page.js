@@ -1,10 +1,10 @@
-"use client"; // Mark this file as a client component
+//src\app\contact\page.js
+"use client";
 
-import Header from "../components/Header"; // Import Header component
-import StatsDisplay from "../components/StatsDisplay"; // Import StatsDisplay component
+import Header from "../components/Header";
+import StatsDisplay from "../components/StatsDisplay";
 import TestimonialSlider from "../components/TestimonialSlider";
 import Banner from "../components/Banner";
-
 import { useState } from "react";
 
 export default function ContactPage() {
@@ -15,6 +15,8 @@ export default function ContactPage() {
     message: "",
     agreed: false,
   });
+  const [submitStatus, setSubmitStatus] = useState({ type: '', message: '' });
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
@@ -24,9 +26,45 @@ export default function ContactPage() {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Form Submitted:", formData);
+    setIsSubmitting(true);
+    setSubmitStatus({ type: '', message: '' });
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        setSubmitStatus({ 
+          type: 'success', 
+          message: 'Thank you for your message. We will get back to you soon!' 
+        });
+        setFormData({
+          fullName: "",
+          email: "",
+          phone: "",
+          message: "",
+          agreed: false,
+        });
+      } else {
+        throw new Error(data.message || 'Something went wrong');
+      }
+    } catch (error) {
+      setSubmitStatus({ 
+        type: 'error', 
+        message: 'Failed to send message. Please try again later.' 
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -37,7 +75,7 @@ export default function ContactPage() {
       <div className="container mx-auto p-8 flex flex-col md:flex-row gap-8">
         {/* Left Section */}
         <div className="flex flex-col justify-start space-y-4 mt-8 md:mt-0">
-          <h1 className="text-4xl font-bold">Let’s Get In Touch.</h1>
+          <h1 className="text-4xl font-bold">Let&apos;s Get In Touch.</h1>
           <p className="text-sm text-gray-300">
             Or just reach out manually to hello@slothui.com.{" "}
             <a href="mailto:hello@example.com" className="text-blue-500 underline">
@@ -63,8 +101,10 @@ export default function ContactPage() {
                 onChange={handleChange}
                 placeholder="Enter your full name..."
                 className="w-full bg-[#1e293b] text-white border-none rounded-md p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                required
               />
             </div>
+
             {/* Email Address */}
             <div>
               <label className="block text-sm mb-2" htmlFor="email">
@@ -78,8 +118,10 @@ export default function ContactPage() {
                 onChange={handleChange}
                 placeholder="Enter your email address..."
                 className="w-full bg-[#1e293b] text-white border-none rounded-md p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                required
               />
             </div>
+
             {/* Phone Number */}
             <div>
               <label className="block text-sm mb-2" htmlFor="phone">
@@ -93,8 +135,10 @@ export default function ContactPage() {
                 onChange={handleChange}
                 placeholder="+44 (000) 000-0000"
                 className="w-full bg-[#1e293b] text-white border-none rounded-md p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                required
               />
             </div>
+
             {/* Message */}
             <div>
               <label className="block text-sm mb-2" htmlFor="message">
@@ -107,12 +151,14 @@ export default function ContactPage() {
                 onChange={handleChange}
                 placeholder="Enter your main text here..."
                 maxLength={300}
-                className="w-full bg-[#1e293b] text-white border-none rounded-md p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full bg-[#1e293b] text-white border-none rounded-md p-3 focus:outline-none focus:ring-2 focus:ring-blue-500 min-h-[100px]"
+                required
               ></textarea>
               <p className="text-right text-gray-500 text-sm">
                 {formData.message.length}/300
               </p>
             </div>
+
             {/* Privacy Agreement */}
             <div className="flex items-center space-x-2">
               <input
@@ -122,6 +168,7 @@ export default function ContactPage() {
                 checked={formData.agreed}
                 onChange={handleChange}
                 className="w-4 h-4 text-blue-500 border-gray-300 rounded focus:ring-blue-500"
+                required
               />
               <label htmlFor="agreed" className="text-sm">
                 I hereby agree to our{" "}
@@ -131,20 +178,39 @@ export default function ContactPage() {
                 .
               </label>
             </div>
+
+            {/* Status Message */}
+            {submitStatus.message && (
+              <div 
+                className={`p-4 rounded-md ${
+                  submitStatus.type === 'success' 
+                    ? 'bg-green-500/20 text-green-200' 
+                    : 'bg-red-500/20 text-red-200'
+                }`}
+              >
+                {submitStatus.message}
+              </div>
+            )}
+
             {/* Submit Button */}
             <div>
               <button
                 type="submit"
-                className="w-full bg-blue-500 text-white py-3 rounded-md hover:bg-blue-600 transition"
+                disabled={isSubmitting || !formData.agreed}
+                className={`w-full py-3 rounded-md transition ${
+                  isSubmitting || !formData.agreed
+                    ? 'bg-blue-500/50 cursor-not-allowed'
+                    : 'bg-blue-500 hover:bg-blue-600'
+                }`}
               >
-                Submit Form
+                {isSubmitting ? 'Sending...' : 'Submit Form'}
               </button>
             </div>
           </form>
         </div>
       </div>
 
-      {/* Stats Display Component */}
+      {/* Additional Components */}
       <StatsDisplay />
       <TestimonialSlider />
       <Banner />

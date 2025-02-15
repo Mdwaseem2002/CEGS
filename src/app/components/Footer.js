@@ -14,7 +14,7 @@ const Footer = () => {
               <Image
                 src="/Assets/cges2.png"
                 alt="Logo"
-                width={100}
+                width={200}
                 height={100}
                 className="object-contain cursor-pointer"
               />
