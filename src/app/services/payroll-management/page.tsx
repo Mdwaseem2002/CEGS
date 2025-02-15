@@ -7,7 +7,7 @@ import Banner from '../../components/Banner';
 import TestimonialSlider from "../../components/TestimonialSlider";
 
 export default function PayrollManagement() {
-  const [activeService, setActiveService] = useState(null);
+  const [activeService, setActiveService] = useState<number | null>(null);
 
   const services = [
     {
