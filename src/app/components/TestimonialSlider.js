@@ -15,7 +15,7 @@ const testimonials = [
   {
     id: 3,
     text: "I'm very thankful for Career Expert Global Solution, for the supportive nature by every staff member in the computer, and very thankful for HR for helping me from the date of interview till the date of joining and getting placed in flipcart, very much pleased by the friendly nature of cegs HRS.",
-    name: "Fathima Faiza"
+    name: "Ayesha"
   },
   {
     id: 4,

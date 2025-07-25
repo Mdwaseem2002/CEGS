@@ -104,8 +104,8 @@ export default function ContactPage() {
             </p>
           </div>
 
-          {/* Contact Icons Section */}
-          <div className="space-y-6 mt-8">
+          {/* Contact Icons Section - Hidden on mobile, visible on md and up */}
+          <div className="hidden md:block space-y-6 mt-8">
             {/* Phone Icon */}
             <div className="flex items-center space-x-4 group hover:bg-white/5 p-4 rounded-lg transition-all duration-300">
               <div className="bg-blue-500/20 p-3 rounded-full group-hover:bg-blue-500/30 transition-all duration-300">
@@ -132,7 +132,6 @@ export default function ContactPage() {
               </div>
             </div>
 
-
             {/* Location Icon */}
             <div className="flex items-center space-x-4 group hover:bg-white/5 p-4 rounded-lg transition-all duration-300">
               <div className="bg-orange-500/20 p-3 rounded-full group-hover:bg-orange-500/30 transition-all duration-300">
@@ -148,8 +147,8 @@ export default function ContactPage() {
             </div>
           </div>
 
-          {/* Decorative Element */}
-          <div className="mt-8 p-6 bg-gradient-to-r from-blue-500/10 to-purple-500/10 rounded-lg border border-blue-500/20">
+          {/* Decorative Element - Hidden on mobile, visible on md and up */}
+          <div className="hidden md:block mt-8 p-6 bg-gradient-to-r from-blue-500/10 to-purple-500/10 rounded-lg border border-blue-500/20">
             <div className="flex items-center space-x-3 mb-3">
               <div className="bg-blue-500/30 p-2 rounded-full">
                 <svg className="w-5 h-5 text-blue-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -258,7 +257,7 @@ export default function ContactPage() {
             {/* Attachment Upload */}
             <div>
               <label className="block text-sm mb-2" htmlFor="attachment">
-                Attachment (Optional)
+                Attachment
               </label>
               <input
                 type="file"

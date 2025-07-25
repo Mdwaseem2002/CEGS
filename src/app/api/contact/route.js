@@ -46,7 +46,7 @@ export async function POST(request) {
     // Email content with ALL fields
     const mailOptions = {
       from: 'raiyan@careerexpertglobaIsolution.com',
-      to: ['strwaseem285@gmail.com', 'zabiusman@careerexpertglobalsolution.com'], // Multiple recipients
+      to: ['strwaseem285@gmail.com', 'zabiusman@careerexpertglobalsolution.com', 'info@careerexpertglobalsolution.com'], // Multiple recipients
       subject: `New Contact Form Submission from ${fullName}`,
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">

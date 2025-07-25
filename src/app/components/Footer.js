@@ -84,7 +84,7 @@ const Footer = () => {
               <img src="/Assets/image-removebg-preview (11).png" alt="Instagram" className="h-10 w-10" />
             </a>
            
-            <a href="https://www.linkedin.com/company/career-expert-global-solution-cegs/posts/?feedView=all" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-700">
+            <a href="https://www.linkedin.com/company/career-expert-global-solution-cegs/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-700">
               <img src="/Assets/image-removebg-preview (12).png" alt="LinkedIn" className="h-10 w-10" />
             </a>
           </div>
