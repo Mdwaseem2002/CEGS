@@ -55,10 +55,11 @@ const Footer = () => {
                   </div>
                 </li>
                 <li>
-                  <div className="flex items-center space-x-2">
-                    <img src="/Assets/image-removebg-preview (9).png" alt="Phone" className="h-5 w-5" />
-                    <span>+91 7892220496</span>
-                  </div>
+                  <div className="flex items-center space-x-2 whitespace-nowrap">
+  <img src="/Assets/image-removebg-preview (9).png" alt="Phone" className="h-5 w-5" />
+  <span>+91 7892220496 / +91 9743870225</span>
+</div>
+
                 </li>
                 <li>
                   <div className="flex items-center space-x-2">
@@ -74,7 +75,7 @@ const Footer = () => {
         {/* Bottom Section */}
         <div className="mt-8 pt-8 border-t flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
           <div className="text-sm text-gray-600">
-            Copyright © 2024 CEGS. All rights reserved.
+            Copyright © 2017 CEGS. All rights reserved.
           </div>
 
           {/* Social Media Links */}
@@ -82,10 +83,8 @@ const Footer = () => {
             <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="text-pink-500 hover:text-pink-600">
               <img src="/Assets/image-removebg-preview (11).png" alt="Instagram" className="h-10 w-10" />
             </a>
-            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-blue-500">
-              <img src="/Assets/image-removebg-preview (14).png" alt="Twitter" className="h-10 w-10" />
-            </a>
-            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-700">
+           
+            <a href="https://www.linkedin.com/company/career-expert-global-solution-cegs/posts/?feedView=all" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-700">
               <img src="/Assets/image-removebg-preview (12).png" alt="LinkedIn" className="h-10 w-10" />
             </a>
           </div>

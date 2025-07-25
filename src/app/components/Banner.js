@@ -26,7 +26,7 @@ const Banner = () => {
       <div className="w-full bg-[#1e213a] px-4 py-6">
   <div className="max-w-4xl mx-auto flex flex-col md:flex-row justify-center items-center">
     <div className="text-white text-xl md:text-2xl font-semibold max-w-xl text-center md:text-left">
-      Seize the digital spotlight and boost your business with pentacloud.
+    Build. Grow. Excel. – Your success powered by the right people and scalable talent solutions.
     </div>
     
     <div className="flex items-center mt-4 md:mt-0">
@@ -40,7 +40,7 @@ const Banner = () => {
           href="mailto:contact@pentacloud.in"
           className="text-[#0288d1] hover:text-[#03a9f4] transition-colors"
         >
-          xxxxxx@cegs.com
+          info@careerexpertglobalsolution.com
         </a>
       </div>
     </div>

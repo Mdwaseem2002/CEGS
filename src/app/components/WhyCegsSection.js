@@ -8,33 +8,29 @@ const WhyCegsSection = () => {
     {
       number: "01",
       title: "Expertise Across Industries",
-      description: "CEGS brings extensive experience working with diverse industries, allowing us to offer tailored solutions that meet your specific business needs."
+      description: "We understand the unique demands of BPO roles and deliver candidates with the right skills and adaptability. Our candidates are not only technically proficient but also possess the right attitude and cultural fit for your business."
     },
     {
       number: "02",
-      title: "Proven Track Record",
-      description: "Our track record of successful projects speaks for itself. We deliver results that help businesses scale and thrive."
+      title: "Fast & Scalable Hiring",
+      description: "Whether you need one hire or hundreds, we ensure fast turnarounds without compromising quality. Our efficient process helps you scale quickly with pre-screened, high-quality candidates ready to join your team."
     },
     {
       number: "03",
-      title: "Customizable Solutions",
-      description: "We understand that every business is unique. CEGS offers flexible solutions that can be tailored to align perfectly with your goals."
+      title: "End-to-End Recruitment Support",
+      description: "From sourcing to onboarding, we manage the entire recruitment process. You can focus on growing your business while we handle the details of hiring the best talent for your needs."
     },
     {
       number: "04",
-      title: "Cost-Effective Services",
-      description: "By choosing CEGS, you get high-quality services at competitive prices, maximizing the value of your investment."
+      title: "Quality Talent Network",
+      description: "Access our deep talent pool of job-ready professionals across voice, non-voice, tech support, and more. We connect you with the right talent to meet your unique business requirements."
     },
     {
       number: "05",
-      title: "Dedicated Support",
-      description: "Our team is committed to providing ongoing support, ensuring that your systems continue to function smoothly after implementation."
-    },
-    {
-      number: "06",
-      title: "Cutting-Edge Technology",
-      description: "We use the latest technology to ensure your solutions are innovative, secure, and future-proof."
+      title: "Proven Success Record",
+      description: "Trusted by top BPOs, we have a proven track record of delivering reliable talent. We consistently reduce hiring challenges and help businesses scale efficiently by providing top-tier candidates."
     }
+    
   ];
 
   const totalPages = Math.ceil(reasons.length / itemsPerPage);
@@ -65,7 +61,7 @@ const WhyCegsSection = () => {
             <div className="space-y-16 relative">
               {visibleReasons.map((reason) => (
                 <div key={reason.number} className="relative">
-                  <div className="text-5xl text-gray-700 font-bold mb-4">
+                  <div className="text-5xl text-gray-700 font-bold mb-12">
                     {reason.number}
                   </div>
                   <h3 className="text-2xl font-semibold mb-3">

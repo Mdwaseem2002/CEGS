@@ -1,46 +1,40 @@
 import React, { useState } from 'react';
 
-const BenefitsSection = () => {
+const Whycges = () => {
   const [currentPage, setCurrentPage] = useState(0);
   const itemsPerPage = 3;
 
   const benefits = [
     {
       number: "01",
-      title: "End-to-End Solutions",
-      description: "From recruitment to payroll management, we offer a complete range of services under one roof. Our integrated solutions ensure smooth transitions from hiring to employee management, allowing you to focus on business growth."
+      title: "No Recruitment Hassles",
+      description: "Our IT augmentation services save your company the hassle of searching and recruiting vetted development talent. We take over the screening process and send you approved CVs."
     },
     {
       number: "02",
-      title: "Industry Expertise",
-      description: "We have in-depth knowledge of sectors like IT, healthcare, retail, BFSI, insurance, and BPO/KPO. This expertise enables us to tailor recruitment strategies and deliver the right talent for your specific industry needs."
+      title: "Lower Operational Costs",
+      description: "Reduce your company spending by eliminating the costs of office space, equipment, and taxes. Pay for what drives the most value for your company."
     },
     {
       number: "03",
-      title: "Technology-Driven Approach",
-      description: "We utilize AI, machine learning, and advanced HR platforms to streamline candidate sourcing and HR management. Our technology-driven approach ensures faster hiring and improved accuracy in matching the right talent."
+      title: "Fewer Legal Hassles",
+      description: "Within our IT augmentation services, we remain the official employers of your hires. Our company takes care of all legal responsibilities and documentation."
     },
     {
       number: "04",
-      title: "High-Volume, Fast-Turnaround Hiring Scalable Systems",
-      description: "Our scalable systems support high-volume hiring, enabling us to quickly fill hundreds of positions. By optimizing processes and automation, we ensure quality hires even in large-scale recruitments."
+      title: "Access to Vetted Talent",
+      description: "Device Software offers you immediate access to a vast talent pool at affordable costs. Amplify your team with certified software specialists."
     },
     {
       number: "05",
-      title: "Global and Multilingual Reach",
-      description: "Specializing in multilingual hiring, we source talent across regions like APAC, LATAM, and Europe. Our global reach helps you build diverse teams with the necessary language skills for your BPO needs."
+      title: "Aggressive Deadlines",
+      description: "Ramp up your technical capacity when chasing a stringent deadline. Our team of developers dedicates their efforts to delivering the project in time."
     },
     {
       number: "06",
-      title: "Candidate Experience & Retention Insights",
-      description: "We enhance the candidate experience through a smooth application process, quick feedback, and transparent communication. This helps improve retention rates and reduces churn in BPO roles."
-    },
-    {
-      number: "07",
-      title: "Strong Client Partnerships",
-      description: "We focus on long-term relationships with clients, offering advisory services on workforce planning, salary benchmarking, and hiring strategies. This collaborative approach helps optimize your hiring process and align it with business goals."
+      title: "Full Control",
+      description: "You choose who to cherry-pick your team members and participate in the screening process. Manage your project success and stay updated on all changes."
     }
-    
   ];
 
   const totalPages = Math.ceil(benefits.length / itemsPerPage);
@@ -61,9 +55,9 @@ const BenefitsSection = () => {
         <div className="flex flex-col lg:flex-row gap-12">
           {/* Fixed left title */}
           <div className="lg:w-1/3 lg:sticky lg:top-1/3 lg:self-start">
-          <h1 className="text-3xl lg:text-3xl font-bold leading-tight mb-4 text-[#D2BE60]">
-          OUR COMPETITIVE EDGE
-</h1>
+            <h1 className="text-3xl lg:text-3xl font-bold leading-tight mb-4">
+              Why CEGS ?
+            </h1>
           </div>
 
           {/* Scrollable right content */}
@@ -115,4 +109,4 @@ const BenefitsSection = () => {
   );
 };
 
-export default BenefitsSection;
+export default Whycges;

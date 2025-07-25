@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import Link from 'next/link';
 import Image from "next/image";  // Import Next.js Image
@@ -10,6 +10,7 @@ export default function Header() {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isMobileServicesOpen, setIsMobileServicesOpen] = useState(false);
+  const dropdownRef = useRef(null);
 
   const toggleMobileServices = (e) => {
     e.stopPropagation(); // Prevent event bubbling
@@ -26,6 +27,20 @@ export default function Header() {
     // Navigate to the specified service path
     router.push(path);
   };
+
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    function handleClickOutside(event) {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setIsDropdownOpen(false);
+      }
+    }
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [dropdownRef]);
 
   const services = [
     { 
@@ -55,15 +70,15 @@ export default function Header() {
       <nav className="container mx-auto flex items-center justify-between py-4 px-6">
         {/* Logo - Link to Home Page */}
         <div className="flex items-center">
-        <Link href="/" passHref>
-  <Image
-    src="/Assets/cges2.png"
-    alt="Logo"
-    width={200}
-    height={100}
-    className="object-contain cursor-pointer"
-  />
-</Link>
+          <Link href="/" passHref>
+            <Image
+              src="/Assets/cges2.png"
+              alt="Logo"
+              width={150}
+              height={100}
+              className="object-contain cursor-pointer"
+            />
+          </Link>
         </div>
 
         {/* Hamburger Icon for Mobile */}
@@ -71,6 +86,7 @@ export default function Header() {
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             className="text-[#D2BE60] focus:outline-none"
+            aria-label="Toggle mobile menu"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -95,11 +111,15 @@ export default function Header() {
             <Link href="/about">About Us</Link>
           </li>
           <li 
-            className="relative group text-white hover:text-[#D2BE60] cursor-pointer text-xl"
-            onMouseEnter={() => setIsDropdownOpen(true)}
-            onMouseLeave={() => setIsDropdownOpen(false)}
+            ref={dropdownRef}
+            className="relative text-white hover:text-[#D2BE60] cursor-pointer text-xl"
           >
-            <div className="flex items-center">
+            <button 
+              className="flex items-center focus:outline-none"
+              onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+              aria-expanded={isDropdownOpen}
+              aria-haspopup="true"
+            >
               Services
               <svg 
                 xmlns="http://www.w3.org/2000/svg" 
@@ -110,15 +130,16 @@ export default function Header() {
               >
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
               </svg>
-            </div>
+            </button>
             {isDropdownOpen && (
               <div className="absolute left-0 mt-2 w-64 bg-black border border-[#D2BE60] rounded-md shadow-lg z-20">
-                <ul className="py-2">
+                <ul className="py-2" role="menu" aria-orientation="vertical">
                   {services.map((service) => (
                     <li 
                       key={service.path}
                       className="px-4 py-2 hover:bg-[#333] text-[#D2BE60] hover:text-white cursor-pointer text-sm"
                       onClick={() => navigateToService(service.path)}
+                      role="menuitem"
                     >
                       {service.name}
                     </li>
@@ -126,6 +147,9 @@ export default function Header() {
                 </ul>
               </div>
             )}
+          </li>
+          <li className="text-white hover:text-[#D2BE60] cursor-pointer text-xl">
+            <Link href="/careers">Careers</Link>
           </li>
           <li className="text-white hover:text-[#D2BE60] cursor-pointer text-xl">
             <Link href="/contact">Contact</Link>
@@ -151,9 +175,10 @@ export default function Header() {
               <Link href="/about">About Us</Link>
             </li>
             <li className="text-[#D2BE60] hover:text-white cursor-pointer">
-              <div 
-                className="flex justify-between items-center"
+              <button 
+                className="flex justify-between items-center w-full"
                 onClick={toggleMobileServices}
+                aria-expanded={isMobileServicesOpen}
               >
                 Services
                 <svg 
@@ -165,7 +190,7 @@ export default function Header() {
                 >
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                 </svg>
-              </div>
+              </button>
               {isMobileServicesOpen && (
                 <ul className="pl-4 mt-2 space-y-2">
                   {services.map((service) => (
@@ -179,6 +204,9 @@ export default function Header() {
                   ))}
                 </ul>
               )}
+            </li>
+            <li className="text-[#D2BE60] hover:text-white cursor-pointer">
+              <Link href="/careers">Careers</Link>
             </li>
             <li className="text-[#D2BE60] hover:text-white cursor-pointer">
               <Link href="/contact">Contact</Link>

@@ -7,68 +7,73 @@ import TestimonialSlider from './TestimonialSlider';
 import WhyCegsSection from './WhyCegsSection';
 import StatsDisplay from './StatsDisplay';
 import Banner from './Banner';
+import { useRouter } from 'next/navigation';
+import Link from "next/link";
 
 const HeroSection = () => {
+  const router = useRouter();
+
   return (
-    <section 
-      className="min-h-screen relative bg-cover bg-center bg-no-repeat pt-16 md:pt-20"
+    <section
+      className="min-h-screen relative bg-cover bg-center bg-no-repeat pt-16 md:pt-20 overflow-hidden"
       style={{
         backgroundImage: "url('/Assets/staffing.png')",
       }}
     >
+      {/* Overlay */}
+      <div className="absolute inset-0 bg-gradient-to-tr from-black/50 via-black/30 to-black/40 -z-10"></div>
+
+      {/* Decorative Blurs */}
+      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-indigo-500/20 rounded-full blur-3xl -z-10"></div>
+      <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-purple-500/20 rounded-full blur-3xl -z-10"></div>
+
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="pl-4 sm:pl-8 md:pl-20 mb-20 md:mb-40">
-          <div className="inline-flex items-center">
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 md:mb-6">
-              Business Process<br />
-              Outsourcing
+        <div className="pl-2 sm:pl-4 md:pl-8 mb-16 md:mb-20">
+          <div className="inline-flex items-center relative">
+            <div className="absolute -left-6 top-1/2 h-12 w-1 bg-gradient-to-b from-indigo-400 to-transparent rounded-full hidden md:block"></div>
+
+            <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400 drop-shadow-lg leading-tight">
+              Connecting top talents with leading<br />
+              BPO&apos;s across the Globe
             </h1>
           </div>
+
+          <div className="h-1 w-16 sm:w-32 bg-gradient-to-r from-indigo-400 to-transparent rounded-full mt-3 sm:mt-4"></div>
         </div>
 
-        <div className="flex justify-start md:justify-end px-4 sm:px-8 md:pr-20 mt-20 sm:mt-40 md:mt-60">
+        {/* Bottom-right content */}
+        <div className="flex justify-start md:justify-end px-4 sm:px-8 md:pr-20 mt-40 sm:mt-64 md:mt-96">
           <div className="max-w-2xl flex flex-col space-y-6 md:space-y-10">
-            <p className="text-white/90 text-base sm:text-lg text-left">
-              Learn more about how business process services can facilitate and boost your business. 
-              Drop us a line or book a free consultation with our leading outsourcing advisor.
-            </p>
+            <div className="backdrop-blur-sm bg-black/20 p-6 rounded-lg border border-white/10 shadow-xl">
+              <p className="text-white/90 text-base sm:text-lg text-left">
+                We take the hiring burden off your plate—delivering skilled, reliable talent tailored to your voice, non-voice, and support process needs. Scale confidently with us.
+              </p>
 
-            <div className="flex space-x-4 md:space-x-6 justify-start">
-              <button className="bg-[#D2BE60] text-white px-6 sm:px-8 py-2 sm:py-3 rounded-full hover:bg-blue-700 transition-colors flex items-center gap-2 shadow-lg text-sm sm:text-base">
-                Contact Us
-                <svg 
-                  className="w-4 h-4" 
-                  fill="none" 
-                  stroke="currentColor" 
-                  viewBox="0 0 24 24"
+              <div className="flex flex-wrap gap-4 mt-6">
+                <button
+                  className="px-6 py-3 bg-gradient-to-r from-indigo-500 to-purple-500 text-white rounded-lg font-medium shadow-lg shadow-indigo-500/30 hover:shadow-indigo-500/50 transition-all"
+                  onClick={() => router.push('/contact')}
                 >
-                  <path 
-                    strokeLinecap="round" 
-                    strokeLinejoin="round" 
-                    strokeWidth={2} 
-                    d="M9 5l7 7-7 7"
-                  />
-                </svg>
-              </button>
+                  Speak to Our Team
+                </button>
+              </div>
             </div>
           </div>
         </div>
       </div>
-
-      <div className="absolute inset-0 bg-black/30 -z-10"></div>
     </section>
   );
-}
+};
 
 const AboutUs = () => {
   return (
-    <div className="relative min-h-screen bg-black">
-      <div 
+    <section className="relative py-24 md:py-32 bg-black">
+      <div
         className="absolute inset-0"
         style={{
           backgroundImage: `linear-gradient(
             to right,
-            rgba(4, 11, 28, 0.9),
+            rgba(4, 11, 28, 0.92),
             rgba(4, 11, 28, 0.85)
           ), url('/Assets/Four.png')`,
           backgroundSize: 'cover',
@@ -76,42 +81,91 @@ const AboutUs = () => {
         }}
       />
 
-      <div className="relative z-10 px-4 sm:px-6 md:px-8 pt-16 sm:pt-20 md:pt-24 pb-8 sm:pb-10 md:pb-12 max-w-7xl mx-auto">
-        <div className="flex items-center gap-1 mb-3">
-          <span className="text-gray-500">[</span>
-          <span className="text-[#D2BE60] tracking-wider">CEGS</span>
-          <span className="text-gray-500">]</span>
+      <div className="relative z-10 container mx-auto px-6 lg:px-8">
+        <div className="flex items-center gap-2 mb-4">
+          <span className="text-gray-400 text-lg">[</span>
+          <span className="text-[#D2BE60] tracking-wider font-medium text-lg">CEGS</span>
+          <span className="text-gray-400 text-lg">]</span>
         </div>
 
-        <div className="relative mb-6 sm:mb-8">
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white tracking-tight">
+        <div className="relative mb-12">
+          <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white tracking-tight">
             About Us
-          </h1>
-          <div className="absolute -bottom-4 sm:-bottom-6 left-0 w-32 sm:w-56 h-0.5 bg-sky-400"></div>
+          </h2>
+          <div className="absolute -bottom-6 left-0 w-24 md:w-32 h-1 bg-gradient-to-r from-sky-400 to-indigo-500"></div>
         </div>
 
-        <div className="max-w-2xl mt-8 sm:mt-12 md:mt-16">
-          <p className="text-gray-300 text-sm sm:text-base leading-relaxed mb-6">
-            We are at the forefront of a revolutionary shift in remote talent acquisition, pioneering a 
-            new era of consulting services that empower companies to tap into a vast network of top-
-            tier professionals from India for global outsourcing needs. Our mission is to provide 
-            seamless and efficient consulting solutions, facilitating unparalleled hiring processes that 
-            enable businesses worldwide to access the finest talents and elevate their workforce to 
-            new heights.
-          </p>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+          <div>
+            <p className="text-gray-300 text-lg leading-relaxed mb-8">
+              We specialize in delivering tailored Staffing Solutions and HR Recruitment services.
+              Our mission is to empower businesses by providing top-tier talent, streamlined payroll
+              management, and advanced digital solutions.
+            </p>
+            <p className="text-gray-300 text-lg leading-relaxed mb-10">
+              With our expert team and client-centric approach, we ensure your workforce
+              operates efficiently and effectively.
+            </p>
 
-          <button className="bg-[#D2BE60] hover:bg-sky-500 text-white px-6 sm:px-8 py-2 sm:py-3 text-sm rounded transition-colors">
-            Learn More
-          </button>
-        </div>
+            
+
+<Link href="/about">
+  <button className="group relative overflow-hidden bg-[#D2BE60] hover:bg-sky-500 text-white px-10 py-4 text-base font-medium rounded-lg transition-all duration-300 shadow-lg hover:shadow-sky-500/30">
+    <span className="relative z-10">Learn More</span>
+    <span className="absolute inset-0 bg-gradient-to-r from-sky-400 to-indigo-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+  </button>
+</Link>
+
+          </div>
+
+          <div className="relative">
+  <div className="bg-gradient-to-br from-indigo-600/20 to-purple-600/20 p-8 rounded-2xl backdrop-blur-sm border border-white/10">
+    <h3 className="text-2xl font-semibold text-white mb-6 text-center">Our Expertise</h3>
+    
+    {/* 2x4 Grid Layout */}
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      {/* Left Column */}
+      <div className="space-y-4">
+        {['Staffing Solutions', 'HR Recruitment', 'Payroll Management', 'Digital Solutions'].map((item, index) => (
+          <div key={index} className="flex items-start">
+            <div className="mr-3 mt-1 text-[#D2BE60]">
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+              </svg>
+            </div>
+            <span className="text-gray-300">{item}</span>
+          </div>
+        ))}
+      </div>
+      
+      {/* Right Column */}
+      <div className="space-y-4">
+        {['HTD Services', 'C2H Service', 'Business Strategy Planning', 'Coordination Services'].map((item, index) => (
+          <div key={index} className="flex items-start">
+            <div className="mr-3 mt-1 text-[#D2BE60]">
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+              </svg>
+            </div>
+            <span className="text-gray-300">{item}</span>
+          </div>
+        ))}
       </div>
     </div>
+  </div>
+
+  <div className="absolute -top-6 -right-6 w-24 h-24 bg-gradient-to-br from-pink-500 to-purple-500 rounded-full opacity-20 blur-2xl"></div>
+  <div className="absolute -bottom-10 -left-10 w-32 h-32 bg-gradient-to-br from-blue-500 to-indigo-500 rounded-full opacity-20 blur-2xl"></div>
+</div>
+        </div>
+      </div>
+    </section>
   );
 };
 
 export default function IntroSection() {
   return (
-    <div className="bg-white">
+    <div className="bg-gray-50">
       <HeroSection />
       <AboutUs />
       <StatsDisplay />
