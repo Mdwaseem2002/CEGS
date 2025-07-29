@@ -110,14 +110,22 @@ export default function AboutUs() {
                 <div className="w-24 h-1 bg-[#D2BE60]"></div>
                 <p className="text-lg text-gray-300 max-w-lg pt-4">
                   With over 12 years of experience in global recruitment and talent acquisition, 
-                  Sarah has consistently pioneered innovative approaches to connecting top-tier talent with the right
-                  opportunities across diverse industries. Her visionary leadership and deep understanding of workforce dynamics have been
+                  Usman has consistently pioneered innovative approaches to connecting top-tier talent with the right
+                  opportunities across diverse industries. His visionary leadership and deep understanding of workforce dynamics have been
                   instrumental in shaping the company&apos;s mission to transform lives through meaningful career placements.
+                </p>
+                <p className="text-lg text-gray-300 max-w-lg pt-4">
+                  In addition to his expertise in recruitment, Usman is a seasoned business consultant and corporate 
+                  strategist, helping startups and established enterprises align their talent strategy with business 
+                  growth objectives. His ability to identify market trends and 
+                  build scalable recruitment models has positioned him as a trusted advisor in the HR and staffing industry.
                 </p>
               
                 <p className="text-lg text-gray-300 max-w-lg pt-4">
-                  Currently, Sarah is <strong>managing operations across 8 different companies</strong>, offering guidance in strategic hiring, operational optimization,
-                  and business expansion. Her hands-on leadership style and entrepreneurial mindset continue to drive innovation, efficiency, and impact across all ventures she oversees.
+                  Currently, Usman is <strong>managing operations across 8 different companies</strong>, 
+                  offering guidance in strategic hiring, operational optimization,
+                  and business expansion. Her hands-on leadership style and entrepreneurial 
+                  mindset continue to drive innovation, efficiency, and impact across all ventures she oversees.
                 </p>
                 <div className="flex space-x-4 pt-4">
                   <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-blue-900 text-white">
